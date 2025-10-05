@@ -62,12 +62,29 @@ a {
   border-radius: 999px;
   padding: 0.5rem 1.25rem;
   font-weight: 500;
-  transition: background 0.2s ease, border-color 0.2s ease;
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .button:hover {
   background: rgba(255, 255, 255, 0.3);
   border-color: rgba(255, 255, 255, 0.6);
+  transform: translateY(-1px);
+}
+
+.button--accent {
+  background: var(--accent);
+  border: 1px solid transparent;
+  color: white;
+  padding-inline: 1.5rem;
+  box-shadow: 0 14px 30px rgba(37, 99, 235, 0.25);
+}
+
+.button--accent:hover {
+  background: var(--accent-strong);
+  border-color: transparent;
 }
 
 .hero-content {
@@ -129,10 +146,21 @@ a {
   box-shadow: var(--shadow);
 }
 
+.card.highlight {
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.95), rgba(14, 116, 144, 0.85));
+  color: white;
+  border: none;
+  box-shadow: 0 25px 55px rgba(15, 23, 42, 0.35);
+}
+
 .card h3 {
   font-size: 1.2rem;
   margin-bottom: 0.75rem;
   color: var(--accent-strong);
+}
+
+.card.highlight h3 {
+  color: white;
 }
 
 .card p + p {
@@ -142,6 +170,10 @@ a {
 .hint {
   font-size: 0.95rem;
   color: var(--muted);
+}
+
+.card.highlight .hint {
+  color: rgba(255, 255, 255, 0.75);
 }
 
 .two-column {
@@ -160,6 +192,35 @@ a {
   border-radius: 1rem;
   padding: 1.25rem 1.5rem;
   box-shadow: var(--shadow);
+}
+
+.ordered-list {
+  list-style: none;
+  counter-reset: ordered-counter;
+  display: grid;
+  gap: 0.85rem;
+}
+
+.ordered-list li {
+  position: relative;
+  padding-left: 2.75rem;
+  line-height: 1.55;
+}
+
+.ordered-list li::before {
+  counter-increment: ordered-counter;
+  content: counter(ordered-counter);
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 999px;
+  background: var(--accent);
+  color: white;
+  font-weight: 600;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 12px 25px rgba(37, 99, 235, 0.25);
 }
 
 .footer {
